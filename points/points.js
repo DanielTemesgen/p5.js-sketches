@@ -13,13 +13,16 @@ function draw() {
 
 class Spot {
   constructor(x, y, r){
+    // location and size
     this.x = x;
     this.y = y;
     this.r = r;
+    // colour
+    this.rgba = [0, 0, random(0, map(mouseX, 0, windowWidth, 30, 255)), random(0, 255)];
   }
   show(){
     noStroke();
-    fill(0, 0, random(0, map(mouseX, 0, windowWidth, 30, 255)), random(0,255));
+    fill(this.rgba[0], this.rgba[1], this.rgba[2], this.rgba[3] );
     ellipse(this.x, this.y, this.r*2);
   }
 }
