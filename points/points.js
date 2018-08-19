@@ -1,26 +1,25 @@
+let spots = []; // this instigates an empty array of spots, to be filled in the draw function
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 }
 
 function draw() {
-  
-  var spot = {
-  x    : random(0,windowWidth),
-  y    : random(0,windowHeight),
-  size : random(10,30)
-  }
-  
-  thing = map(mouseX, 0, windowWidth, 30, 255);
-
-  var col = {
-  r : random(0,0),
-  g : random(0,0),
-  b : random(30, thing),
-  a : random(0,255)
+  let new_spot = new Spot(random(width), random(height), random(5, 15)); // this brings in a new spot in every loop
+  spots.push(new_spot); // this pushs it to the array of spots
+  spots[spots.length - 1].show(); // this shows the spot that has just been made
 }
 
-  noStroke()
-  fill(col.r, col.g, col.b, col.a);
-  ellipse(spot.x, spot.y, spot.size, spot.size);
+class Spot {
+  constructor(x, y, r){
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+  show(){
+    noStroke();
+    fill(0, 0, random(0, map(mouseX, 0, windowWidth, 30, 255)), random(0,255));
+    ellipse(this.x, this.y, this.r*2);
+  }
 }
