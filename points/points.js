@@ -1,4 +1,4 @@
-let spots = []; // this instigates an empty array of spots, to be filled in the draw function
+let spots = []; // this initiates an empty array of spots, to be filled in the draw function
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -22,7 +22,7 @@ class Spot {
   }
   show(){
     noStroke();
-    fill(this.rgba[0], this.rgba[1], this.rgba[2], this.rgba[3] );
+    fill(this.rgba[0], this.rgba[1], this.rgba[2], this.rgba[3]);
     ellipse(this.x, this.y, this.r*2);
   }
 }
