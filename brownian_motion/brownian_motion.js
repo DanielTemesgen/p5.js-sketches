@@ -1,10 +1,10 @@
 let bubbles = []; // instantiating the array where the bubbles will be.
 let general_properties = {
-    background : 20
+    background: 20
 }
 let bubble_properties = {
-    def_colour : 150,
-    new_colour : 255
+    def_colour: 150,
+    new_colour: 255
 }
 
 function setup() { // this sets up the bubbles and assigns their initial properties.
@@ -15,22 +15,22 @@ function setup() { // this sets up the bubbles and assigns their initial propert
 }
 
 function draw() {
-  background(general_properties.background);
-  for (let b of bubbles) {
-    b.show();
-    b.move();
-    let overlapping = false; // initialises the overlapping variable to false
-    for (let other of bubbles) {
-      if ((b !== other && b.overlap(other)) || b.rollover(mouseX, mouseY)) { // if two bubble overlap or the mouse rolls over a bubble, this sets overlapping to true.
-        overlapping = true;
-      }
+    background(general_properties.background);
+    for (let b of bubbles) {
+        b.show();
+        b.move();
+        let overlapping = false; // initialises the overlapping variable to false
+        for (let other of bubbles) {
+            if ((b !== other && b.overlap(other)) || b.rollover(mouseX, mouseY)) { // if two bubble overlap or the mouse rolls over a bubble, this sets overlapping to true.
+                overlapping = true;
+            }
+        }
+        if (overlapping) { // if overlapping is true this changes the colour
+            b.change_colour(bubble_properties.new_colour);
+        } else {
+            b.change_colour(bubble_properties.def_colour);
+        }
     }
-    if (overlapping) { // if overlapping is true this changes the colour
-      b.change_colour(bubble_properties.new_colour);
-    } else {
-      b.change_colour(bubble_properties.def_colour);
-    }
-  }
 }
 
 function mouseDragged() { // this function
